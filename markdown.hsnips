@@ -1,0 +1,871 @@
+# Math mode
+# 	{trigger: "mk", replacement: "$$0$", options: "tA"},
+snippet mk "mk" Ai
+$$0$
+endsnippet
+# 	{trigger: "dm", replacement: "$$\n$0\n$$", options: "tAw"},
+snippet dm "dm" Awi
+$$
+$0
+$$
+endsnippet
+# 	{trigger: "beg", replacement: "\\begin{$0}\n$1\n\\end{$0}", options: "mA"},
+snippet beg "beg" Ami
+\\begin{$0}
+$1
+\\end{$0}
+endsnippet
+# Dashes
+# {trigger: "--", replacement: "–", options: "tA"},
+# {trigger: "–-", replacement: "—", options: "tA"},
+# {trigger: "—-", replacement: "---", options: "tA"},
+# Greek letters
+# 	{trigger: "@a", replacement: "\\alpha", options: "mA"},
+snippet @a "@a" Ami
+\\alpha
+endsnippet
+# 	{trigger: "@b", replacement: "\\beta", options: "mA"},
+snippet @b "@b" Ami
+\\beta
+endsnippet
+# 	{trigger: "@g", replacement: "\\gamma", options: "mA"},
+snippet @g "@g" Ami
+\\gamma
+endsnippet
+# 	{trigger: "@G", replacement: "\\Gamma", options: "mA"},
+snippet @G "@G" Ami
+\\Gamma
+endsnippet
+# 	{trigger: "@d", replacement: "\\delta", options: "mA"},
+snippet @d "@d" Ami
+\\delta
+endsnippet
+# 	{trigger: "@D", replacement: "\\Delta", options: "mA"},
+snippet @D "@D" Ami
+\\Delta
+endsnippet
+# 	{trigger: "@e", replacement: "\\epsilon", options: "mA"},
+snippet @e "@e" Ami
+\\epsilon
+endsnippet
+# 	{trigger: ":e", replacement: "\\varepsilon", options: "mA"},
+snippet :e ":e" Ami
+\\varepsilon
+endsnippet
+# 	{trigger: "@z", replacement: "\\zeta", options: "mA"},
+snippet @z "@z" Ami
+\\zeta
+endsnippet
+# 	{trigger: "@t", replacement: "\\theta", options: "mA"},
+snippet @t "@t" Ami
+\\theta
+endsnippet
+# 	{trigger: "@T", replacement: "\\Theta", options: "mA"},
+snippet @T "@T" Ami
+\\Theta
+endsnippet
+# 	{trigger: ":t", replacement: "\\vartheta", options: "mA"},
+snippet :t ":t" Ami
+\\vartheta
+endsnippet
+# 	{trigger: "@i", replacement: "\\iota", options: "mA"},
+snippet @i "@i" Ami
+\\iota
+endsnippet
+# 	{trigger: "@k", replacement: "\\kappa", options: "mA"},
+snippet @k "@k" Ami
+\\kappa
+endsnippet
+# 	{trigger: "@l", replacement: "\\lambda", options: "mA"},
+snippet @l "@l" Ami
+\\lambda
+endsnippet
+# 	{trigger: "@L", replacement: "\\Lambda", options: "mA"},
+snippet @L "@L" Ami
+\\Lambda
+endsnippet
+# 	{trigger: "@s", replacement: "\\sigma", options: "mA"},
+snippet @s "@s" Ami
+\\sigma
+endsnippet
+# 	{trigger: "@S", replacement: "\\Sigma", options: "mA"},
+snippet @S "@S" Ami
+\\Sigma
+endsnippet
+# 	{trigger: "@u", replacement: "\\upsilon", options: "mA"},
+snippet @u "@u" Ami
+\\upsilon
+endsnippet
+# 	{trigger: "@U", replacement: "\\Upsilon", options: "mA"},
+snippet @U "@U" Ami
+\\Upsilon
+endsnippet
+# 	{trigger: "@o", replacement: "\\omega", options: "mA"},
+snippet @o "@o" Ami
+\\omega
+endsnippet
+# 	{trigger: "@O", replacement: "\\Omega", options: "mA"},
+snippet @O "@O" Ami
+\\Omega
+endsnippet
+# 	{trigger: "ome", replacement: "\\omega", options: "mA"},
+snippet ome "ome" Ami
+\\omega
+endsnippet
+# 	{trigger: "Ome", replacement: "\\Omega", options: "mA"},
+snippet Ome "Ome" Ami
+\\Omega
+endsnippet
+# Text environment
+#     {trigger: "text", replacement: "\\text{$0}$1", options: "mA"},
+snippet text "text" Ami
+\\text{$0}$1
+endsnippet
+#     {trigger: "\"", replacement: "\\text{$0}$1", options: "mA"},
+snippet \ "\" Ami
+\\text{$0}$1
+endsnippet
+# Basic operations
+#     {trigger: "sr", replacement: "^{2}", options: "mA"},
+snippet sr "sr" Ami
+^{2}
+endsnippet
+# 	{trigger: "cb", replacement: "^{3}", options: "mA"},
+snippet cb "cb" Ami
+^{3}
+endsnippet
+# 	{trigger: "rd", replacement: "^{$0}$1", options: "mA"},
+snippet rd "rd" Ami
+^{$0}$1
+endsnippet
+# 	{trigger: "_", replacement: "_{$0}$1", options: "mA"},
+snippet _ "_" Ami
+_{$0}$1
+endsnippet
+# 	{trigger: "sts", replacement: "_\\text{$0}", options: "mA"},
+snippet sts "sts" Ami
+_\\text{$0}
+endsnippet
+# 	{trigger: "sq", replacement: "\\sqrt{ $0 }$1", options: "mA"},
+snippet sq "sq" Ami
+\\sqrt{ $0 }$1
+endsnippet
+# 	{trigger: "//", replacement: "\\frac{$0}{$1}$2", options: "mA"},
+# 	{trigger: "ee", replacement: "e^{ $0 }$1", options: "mA"},
+snippet ee "ee" Ami
+e^{ $0 }$1
+endsnippet
+#     {trigger: "invs", replacement: "^{-1}", options: "mA"},
+snippet invs "invs" Ami
+^{-1}
+endsnippet
+#     {trigger: /([A-Za-z])(\d)/, replacement: "[[0]]_{[[1]]}", options: "rmA", description: "Auto letter subscript", priority: -1},
+snippet ([A-Za-z])(\d) "Auto letter subscript priority: -1}" Armi
+[[0]]_{[[1]]}
+endsnippet
+#     {trigger: /([^\\])(exp|log|ln)/, replacement: "[[0]]\\[[1]]", options: "rmA"},
+snippet ([^\\])(exp|log|ln) "([^\\])(exp|log|ln)" Armi
+[[0]]\\[[1]]
+endsnippet
+#     {trigger: "conj", replacement: "^{*}", options: "mA"},
+snippet conj "conj" Ami
+^{*}
+endsnippet
+#     {trigger: "Re", replacement: "\\mathrm{Re}", options: "mA"},
+snippet Re "Re" Ami
+\\mathrm{Re}
+endsnippet
+# 	{trigger: "Im", replacement: "\\mathrm{Im}", options: "mA"},
+snippet Im "Im" Ami
+\\mathrm{Im}
+endsnippet
+#     {trigger: "bf", replacement: "\\mathbf{$0}", options: "mA"},
+snippet bf "bf" Ami
+\\mathbf{$0}
+endsnippet
+# 	{trigger: "rm", replacement: "\\mathrm{$0}$1", options: "mA"},
+snippet rm "rm" Ami
+\\mathrm{$0}$1
+endsnippet
+# Linear algebra
+#     {trigger: /([^\\])(det)/, replacement: "[[0]]\\[[1]]", options: "rmA"},
+snippet ([^\\])(det) "([^\\])(det)" Armi
+[[0]]\\[[1]]
+endsnippet
+#     {trigger: "trace", replacement: "\\mathrm{Tr}", options: "mA"},
+snippet trace "trace" Ami
+\\mathrm{Tr}
+endsnippet
+# More operations
+# 	{trigger: "([a-zA-Z])hat", replacement: "\\hat{[[0]]}", options: "rmA"},
+snippet ([a-zA-Z])hat "([a-zA-Z])hat" Armi
+\\hat{[[0]]}
+endsnippet
+#     {trigger: "([a-zA-Z])bar", replacement: "\\bar{[[0]]}", options: "rmA"},
+snippet ([a-zA-Z])bar "([a-zA-Z])bar" Armi
+\\bar{[[0]]}
+endsnippet
+# 	{trigger: "([a-zA-Z])dot", replacement: "\\dot{[[0]]}", options: "rmA", priority: -1},
+snippet ([a-zA-Z])dot "([a-zA-Z])dot priority: -1}" Armi
+\\dot{[[0]]}
+endsnippet
+# 	{trigger: "([a-zA-Z])ddot", replacement: "\\ddot{[[0]]}", options: "rmA", priority: 1},
+snippet ([a-zA-Z])ddot "([a-zA-Z])ddot priority: 1}" Armi
+\\ddot{[[0]]}
+endsnippet
+# 	{trigger: "([a-zA-Z])tilde", replacement: "\\tilde{[[0]]}", options: "rmA"},
+snippet ([a-zA-Z])tilde "([a-zA-Z])tilde" Armi
+\\tilde{[[0]]}
+endsnippet
+# 	{trigger: "([a-zA-Z])und", replacement: "\\underline{[[0]]}", options: "rmA"},
+snippet ([a-zA-Z])und "([a-zA-Z])und" Armi
+\\underline{[[0]]}
+endsnippet
+# 	{trigger: "([a-zA-Z])vec", replacement: "\\vec{[[0]]}", options: "rmA"},
+snippet ([a-zA-Z])vec "([a-zA-Z])vec" Armi
+\\vec{[[0]]}
+endsnippet
+#     {trigger: "([a-zA-Z]),\\.", replacement: "\\mathbf{[[0]]}", options: "rmA"},
+snippet ([a-zA-Z]) "([a-zA-Z])" Armi
+\\mathbf{[[0]]}
+endsnippet
+# 	{trigger: "([a-zA-Z])\\.,", replacement: "\\mathbf{[[0]]}", options: "rmA"},
+snippet ([a-zA-Z])\\. "([a-zA-Z])\\." Armi
+\\mathbf{[[0]]}
+endsnippet
+# 	{trigger: "\\\\(${GREEK}),\\.", replacement: "\\boldsymbol{\\[[0]]}", options: "rmA"},
+snippet \\\\(${GREEK}) "\\\\(${GREEK})" Armi
+\\boldsymbol{\\[[0]]}
+endsnippet
+# 	{trigger: "\\\\(${GREEK})\\.,", replacement: "\\boldsymbol{\\[[0]]}", options: "rmA"},
+snippet \\\\(${GREEK})\\. "\\\\(${GREEK})\\." Armi
+\\boldsymbol{\\[[0]]}
+endsnippet
+# 	{trigger: "hat", replacement: "\\hat{$0}$1", options: "mA"},
+snippet hat "hat" Ami
+\\hat{$0}$1
+endsnippet
+#     {trigger: "bar", replacement: "\\bar{$0}$1", options: "mA"},
+snippet bar "bar" Ami
+\\bar{$0}$1
+endsnippet
+# 	{trigger: "dot", replacement: "\\dot{$0}$1", options: "mA", priority: -1},
+snippet dot "dot priority: -1}" Ami
+\\dot{$0}$1
+endsnippet
+# 	{trigger: "ddot", replacement: "\\ddot{$0}$1", options: "mA"},
+snippet ddot "ddot" Ami
+\\ddot{$0}$1
+endsnippet
+# 	{trigger: "cdot", replacement: "\\cdot", options: "mA"},
+snippet cdot "cdot" Ami
+\\cdot
+endsnippet
+# 	{trigger: "tilde", replacement: "\\tilde{$0}$1", options: "mA"},
+snippet tilde "tilde" Ami
+\\tilde{$0}$1
+endsnippet
+# 	{trigger: "und", replacement: "\\underline{$0}$1", options: "mA"},
+snippet und "und" Ami
+\\underline{$0}$1
+endsnippet
+# 	{trigger: "vec", replacement: "\\vec{$0}$1", options: "mA"},
+snippet vec "vec" Ami
+\\vec{$0}$1
+endsnippet
+# More auto letter subscript
+#     {trigger: /([A-Za-z])_(\d\d)/, replacement: "[[0]]_{[[1]]}", options: "rmA"},
+snippet ([A-Za-z])_(\d\d) "([A-Za-z])_(\d\d)" Armi
+[[0]]_{[[1]]}
+endsnippet
+# 	{trigger: /\\hat{([A-Za-z])}(\d)/, replacement: "\\hat{[[0]]}_{[[1]]}", options: "rmA"},
+snippet \\hat{([A-Za-z])}(\d) "\\hat{([A-Za-z])}(\d)" Armi
+\\hat{[[0]]}_{[[1]]}
+endsnippet
+# 	{trigger: /\\vec{([A-Za-z])}(\d)/, replacement: "\\vec{[[0]]}_{[[1]]}", options: "rmA"},
+snippet \\vec{([A-Za-z])}(\d) "\\vec{([A-Za-z])}(\d)" Armi
+\\vec{[[0]]}_{[[1]]}
+endsnippet
+# 	{trigger: /\\mathbf{([A-Za-z])}(\d)/, replacement: "\\mathbf{[[0]]}_{[[1]]}", options: "rmA"},
+snippet \\mathbf{([A-Za-z])}(\d) "\\mathbf{([A-Za-z])}(\d)" Armi
+\\mathbf{[[0]]}_{[[1]]}
+endsnippet
+#     {trigger: "xnn", replacement: "x_{n}", options: "mA"},
+snippet xnn "xnn" Ami
+x_{n}
+endsnippet
+# 	{trigger: "\\xii", replacement: "x_{i}", options: "mA", priority: 1},
+snippet \\xii "\\xii priority: 1}" Ami
+x_{i}
+endsnippet
+# 	{trigger: "xjj", replacement: "x_{j}", options: "mA"},
+snippet xjj "xjj" Ami
+x_{j}
+endsnippet
+# 	{trigger: "xp1", replacement: "x_{n+1}", options: "mA"},
+snippet xp1 "xp1" Ami
+x_{n+1}
+endsnippet
+# 	{trigger: "ynn", replacement: "y_{n}", options: "mA"},
+snippet ynn "ynn" Ami
+y_{n}
+endsnippet
+# 	{trigger: "yii", replacement: "y_{i}", options: "mA"},
+snippet yii "yii" Ami
+y_{i}
+endsnippet
+# 	{trigger: "yjj", replacement: "y_{j}", options: "mA"},
+snippet yjj "yjj" Ami
+y_{j}
+endsnippet
+# Symbols
+#     {trigger: "ooo", replacement: "\\infty", options: "mA"},
+snippet ooo "ooo" Ami
+\\infty
+endsnippet
+# 	{trigger: "sum", replacement: "\\sum", options: "mA"},
+snippet sum "sum" Ami
+\\sum
+endsnippet
+# 	{trigger: "prod", replacement: "\\prod", options: "mA"},
+snippet prod "prod" Ami
+\\prod
+endsnippet
+# 	{trigger: "\\sum", replacement: "\\sum_{${0:i}=${1:1}}^{${2:N}} $3", options: "m"},
+snippet \\sum "\\sum" mi
+\\sum_{${0:i}=${1:1}}^{${2:N}} $3
+endsnippet
+# 	{trigger: "\\prod", replacement: "\\prod_{${0:i}=${1:1}}^{${2:N}} $3", options: "m"},
+snippet \\prod "\\prod" mi
+\\prod_{${0:i}=${1:1}}^{${2:N}} $3
+endsnippet
+#     {trigger: "lim", replacement: "\\lim_{ ${0:n} \\to ${1:\\infty} } $2", options: "mA"},
+snippet lim "lim" Ami
+\\lim_{ ${0:n} \\to ${1:\\infty} } $2
+endsnippet
+#     {trigger: "+-", replacement: "\\pm", options: "mA"},
+snippet +- "+-" Ami
+\\pm
+endsnippet
+# 	{trigger: "-+", replacement: "\\mp", options: "mA"},
+snippet -+ "-+" Ami
+\\mp
+endsnippet
+#     {trigger: "...", replacement: "\\dots", options: "mA"},
+snippet ... "..." Ami
+\\dots
+endsnippet
+#     {trigger: "nabl", replacement: "\\nabla", options: "mA"},
+snippet nabl "nabl" Ami
+\
+abla
+endsnippet
+# 	{trigger: "del", replacement: "\\nabla", options: "mA"},
+snippet del "del" Ami
+\
+abla
+endsnippet
+#     {trigger: "xx", replacement: "\\times", options: "mA"},
+snippet xx "xx" Ami
+\\times
+endsnippet
+#     {trigger: "**", replacement: "\\cdot", options: "mA"},
+snippet ** "**" Ami
+\\cdot
+endsnippet
+#     {trigger: "para", replacement: "\\parallel", options: "mA"},
+snippet para "para" Ami
+\\parallel
+endsnippet
+# 	{trigger: "===", replacement: "\\equiv", options: "mA"},
+snippet === "===" Ami
+\\equiv
+endsnippet
+#     {trigger: "!=", replacement: "\\neq", options: "mA"},
+snippet != "!=" Ami
+\
+eq
+endsnippet
+# 	{trigger: ">=", replacement: "\\geq", options: "mA"},
+snippet >= ">=" Ami
+\\geq
+endsnippet
+# 	{trigger: "<=", replacement: "\\leq", options: "mA"},
+snippet <= "<=" Ami
+\\leq
+endsnippet
+# 	{trigger: ">>", replacement: "\\gg", options: "mA"},
+snippet >> ">>" Ami
+\\gg
+endsnippet
+# 	{trigger: "<<", replacement: "\\ll", options: "mA"},
+snippet << "<<" Ami
+\\ll
+endsnippet
+# 	{trigger: "simm", replacement: "\\sim", options: "mA"},
+snippet simm "simm" Ami
+\\sim
+endsnippet
+# 	{trigger: "sim=", replacement: "\\simeq", options: "mA"},
+snippet sim= "sim=" Ami
+\\simeq
+endsnippet
+#     {trigger: "prop", replacement: "\\propto", options: "mA"},
+snippet prop "prop" Ami
+\\propto
+endsnippet
+#     {trigger: "<->", replacement: "\\leftrightarrow ", options: "mA"},
+snippet <-> "<->" Ami
+\\leftrightarrow 
+endsnippet
+# 	{trigger: "->", replacement: "\\to", options: "mA"},
+snippet -> "->" Ami
+\\to
+endsnippet
+# 	{trigger: "!>", replacement: "\\mapsto", options: "mA"},
+snippet !> "!>" Ami
+\\mapsto
+endsnippet
+#     {trigger: "=>", replacement: "\\implies", options: "mA"},
+snippet => "=>" Ami
+\\implies
+endsnippet
+# 	{trigger: "=<", replacement: "\\impliedby", options: "mA"},
+snippet =< "=<" Ami
+\\impliedby
+endsnippet
+# 	{trigger: "and", replacement: "\\cap", options: "mA"},
+snippet and "and" Ami
+\\cap
+endsnippet
+# 	{trigger: "orr", replacement: "\\cup", options: "mA"},
+snippet orr "orr" Ami
+\\cup
+endsnippet
+# 	{trigger: "inn", replacement: "\\in", options: "mA"},
+snippet inn "inn" Ami
+\\in
+endsnippet
+# 	{trigger: "notin", replacement: "\\not\\in", options: "mA"},
+snippet notin "notin" Ami
+\
+ot\\in
+endsnippet
+#     {trigger: "\\\\\\", replacement: "\\setminus", options: "mA"},
+snippet \\\\\\ "\\\\\\" Ami
+\\setminus
+endsnippet
+#     {trigger: "sub=", replacement: "\\subseteq", options: "mA"},
+snippet sub= "sub=" Ami
+\\subseteq
+endsnippet
+#     {trigger: "sup=", replacement: "\\supseteq", options: "mA"},
+snippet sup= "sup=" Ami
+\\supseteq
+endsnippet
+# 	{trigger: "eset", replacement: "\\emptyset", options: "mA"},
+snippet eset "eset" Ami
+\\emptyset
+endsnippet
+# 	{trigger: "set", replacement: "\\{ $0 \\}$1", options: "mA"},
+snippet set "set" Ami
+\\{ $0 \\}$1
+endsnippet
+# 	{trigger: "e\\xi sts", replacement: "\\exists", options: "mA", priority: 1},
+snippet e\\xi sts "e\\xi sts priority: 1}" Ami
+\\exists
+endsnippet
+# 	{trigger: "LL", replacement: "\\mathcal{L}", options: "mA"},
+snippet LL "LL" Ami
+\\mathcal{L}
+endsnippet
+# 	{trigger: "HH", replacement: "\\mathcal{H}", options: "mA"},
+snippet HH "HH" Ami
+\\mathcal{H}
+endsnippet
+# 	{trigger: "CC", replacement: "\\mathbb{C}", options: "mA"},
+snippet CC "CC" Ami
+\\mathbb{C}
+endsnippet
+# 	{trigger: "RR", replacement: "\\mathbb{R}", options: "mA"},
+snippet RR "RR" Ami
+\\mathbb{R}
+endsnippet
+# 	{trigger: "ZZ", replacement: "\\mathbb{Z}", options: "mA"},
+snippet ZZ "ZZ" Ami
+\\mathbb{Z}
+endsnippet
+# 	{trigger: "NN", replacement: "\\mathbb{N}", options: "mA"},
+snippet NN "NN" Ami
+\\mathbb{N}
+endsnippet
+# Handle spaces and backslashes
+# Snippet variables can be used as shortcuts when writing snippets.
+# For example, ${GREEK} below is shorthand for "alpha|beta|gamma|Gamma|delta|..."
+# You can edit snippet variables under the Advanced snippet settings section.
+# 	{trigger: "([^\\\\])(${GREEK})", replacement: "[[0]]\\[[1]]", options: "rmA", description: "Add backslash before Greek letters"},
+snippet ([^\\\\])(${GREEK}) "Add backslash before Greek letters"}" Armi
+[[0]]\\[[1]]
+endsnippet
+# 	{trigger: "([^\\\\])(${SYMBOL})", replacement: "[[0]]\\[[1]]", options: "rmA", description: "Add backslash before symbols"},
+snippet ([^\\\\])(${SYMBOL}) "Add backslash before symbols"}" Armi
+[[0]]\\[[1]]
+endsnippet
+# Insert space after Greek letters and symbols
+# 	{trigger: "\\\\(${GREEK}|${SYMBOL}|${MORE_SYMBOLS})([A-Za-z])", replacement: "\\[[0]] [[1]]", options: "rmA"},
+snippet \\\\(${GREEK}|${SYMBOL}|${MORE_SYMBOLS})([A-Za-z]) "\\\\(${GREEK}|${SYMBOL}|${MORE_SYMBOLS})([A-Za-z])" Armi
+\\[[0]] [[1]]
+endsnippet
+# 	{trigger: "\\\\(${GREEK}|${SYMBOL}) sr", replacement: "\\[[0]]^{2}", options: "rmA"},
+snippet \\\\(${GREEK}|${SYMBOL}) sr "\\\\(${GREEK}|${SYMBOL}) sr" Armi
+\\[[0]]^{2}
+endsnippet
+# 	{trigger: "\\\\(${GREEK}|${SYMBOL}) cb", replacement: "\\[[0]]^{3}", options: "rmA"},
+snippet \\\\(${GREEK}|${SYMBOL}) cb "\\\\(${GREEK}|${SYMBOL}) cb" Armi
+\\[[0]]^{3}
+endsnippet
+# 	{trigger: "\\\\(${GREEK}|${SYMBOL}) rd", replacement: "\\[[0]]^{$0}$1", options: "rmA"},
+snippet \\\\(${GREEK}|${SYMBOL}) rd "\\\\(${GREEK}|${SYMBOL}) rd" Armi
+\\[[0]]^{$0}$1
+endsnippet
+# 	{trigger: "\\\\(${GREEK}|${SYMBOL}) hat", replacement: "\\hat{\\[[0]]}", options: "rmA"},
+snippet \\\\(${GREEK}|${SYMBOL}) hat "\\\\(${GREEK}|${SYMBOL}) hat" Armi
+\\hat{\\[[0]]}
+endsnippet
+# 	{trigger: "\\\\(${GREEK}|${SYMBOL}) dot", replacement: "\\dot{\\[[0]]}", options: "rmA"},
+snippet \\\\(${GREEK}|${SYMBOL}) dot "\\\\(${GREEK}|${SYMBOL}) dot" Armi
+\\dot{\\[[0]]}
+endsnippet
+# 	{trigger: "\\\\(${GREEK}|${SYMBOL}) bar", replacement: "\\bar{\\[[0]]}", options: "rmA"},
+snippet \\\\(${GREEK}|${SYMBOL}) bar "\\\\(${GREEK}|${SYMBOL}) bar" Armi
+\\bar{\\[[0]]}
+endsnippet
+# 	{trigger: "\\\\(${GREEK}|${SYMBOL}) vec", replacement: "\\vec{\\[[0]]}", options: "rmA"},
+snippet \\\\(${GREEK}|${SYMBOL}) vec "\\\\(${GREEK}|${SYMBOL}) vec" Armi
+\\vec{\\[[0]]}
+endsnippet
+# 	{trigger: "\\\\(${GREEK}|${SYMBOL}) tilde", replacement: "\\tilde{\\[[0]]}", options: "rmA"},
+snippet \\\\(${GREEK}|${SYMBOL}) tilde "\\\\(${GREEK}|${SYMBOL}) tilde" Armi
+\\tilde{\\[[0]]}
+endsnippet
+# 	{trigger: "\\\\(${GREEK}|${SYMBOL}) und", replacement: "\\underline{\\[[0]]}", options: "rmA"},
+snippet \\\\(${GREEK}|${SYMBOL}) und "\\\\(${GREEK}|${SYMBOL}) und" Armi
+\\underline{\\[[0]]}
+endsnippet
+# Derivatives and integrals
+#     {trigger: "par", replacement: "\\frac{ \\partial ${0:y} }{ \\partial ${1:x} } $2", options: "m"},
+snippet par "par" mi
+\\frac{ \\partial ${0:y} }{ \\partial ${1:x} } $2
+endsnippet
+#     {trigger: /pa([A-Za-z])([A-Za-z])/, replacement: "\\frac{ \\partial [[0]] }{ \\partial [[1]] } ", options: "rm"},
+snippet pa([A-Za-z])([A-Za-z]) "pa([A-Za-z])([A-Za-z])" rmi
+\\frac{ \\partial [[0]] }{ \\partial [[1]] } 
+endsnippet
+#     {trigger: "ddt", replacement: "\\frac{d}{dt} ", options: "mA"},
+snippet ddt "ddt" Ami
+\\frac{d}{dt} 
+endsnippet
+#     {trigger: /([^\\])int/, replacement: "[[0]]\\int", options: "mA", priority: -1},
+snippet ([^\\])int "([^\\])int priority: -1}" Ami
+[[0]]\\int
+endsnippet
+#     {trigger: "\\int", replacement: "\\int $0 \\, d${1:x} $2", options: "m"},
+snippet \\int "\\int" mi
+\\int $0 \\
+endsnippet
+#     {trigger: "dint", replacement: "\\int_{${0:0}}^{${1:1}} $2 \\, d${3:x} $4", options: "mA"},
+snippet dint "dint" Ami
+\\int_{${0:0}}^{${1:1}} $2 \\
+endsnippet
+#     {trigger: "oint", replacement: "\\oint", options: "mA"},
+snippet oint "oint" Ami
+\\oint
+endsnippet
+# 	{trigger: "iint", replacement: "\\iint", options: "mA"},
+snippet iint "iint" Ami
+\\iint
+endsnippet
+#     {trigger: "iiint", replacement: "\\iiint", options: "mA"},
+snippet iiint "iiint" Ami
+\\iiint
+endsnippet
+#     {trigger: "oinf", replacement: "\\int_{0}^{\\infty} $0 \\, d${1:x} $2", options: "mA"},
+snippet oinf "oinf" Ami
+\\int_{0}^{\\infty} $0 \\
+endsnippet
+# 	{trigger: "infi", replacement: "\\int_{-\\infty}^{\\infty} $0 \\, d${1:x} $2", options: "mA"},
+snippet infi "infi" Ami
+\\int_{-\\infty}^{\\infty} $0 \\
+endsnippet
+# Trigonometry
+#     {trigger: /([^\\])(arcsin|sin|arccos|cos|arctan|tan|csc|sec|cot)/, replacement: "[[0]]\\[[1]]", options: "rmA", description: "Add backslash before trig funcs"},
+snippet ([^\\])(arcsin|sin|arccos|cos|arctan|tan|csc|sec|cot) "Add backslash before trig funcs"}" Armi
+[[0]]\\[[1]]
+endsnippet
+#     {trigger: /\\(arcsin|sin|arccos|cos|arctan|tan|csc|sec|cot)([A-Za-gi-z])/,
+     replacement: "\\[[0]] [[1]]", options: "rmA",
+     description: "Add space after trig funcs. Skips letter h to allow sinh, cosh, etc."},
+#     {trigger: /\\(sinh|cosh|tanh|coth)([A-Za-z])/,
+     replacement: "\\[[0]] [[1]]", options: "rmA",
+     description: "Add space after hyperbolic trig funcs"},
+# Visual operations
+# 	{trigger: "U", replacement: "\\underbrace{ ${VISUAL} }_{ $0 }", options: "mA"},
+snippet U "U" Ami
+\\underbrace{ ${VISUAL} }_{ $0 }
+endsnippet
+# 	{trigger: "O", replacement: "\\overbrace{ ${VISUAL} }^{ $0 }", options: "mA"},
+snippet O "O" Ami
+\\overbrace{ ${VISUAL} }^{ $0 }
+endsnippet
+# 	{trigger: "B", replacement: "\\underset{ $0 }{ ${VISUAL} }", options: "mA"},
+snippet B "B" Ami
+\\underset{ $0 }{ ${VISUAL} }
+endsnippet
+# 	{trigger: "C", replacement: "\\cancel{ ${VISUAL} }", options: "mA"},
+snippet C "C" Ami
+\\cancel{ ${VISUAL} }
+endsnippet
+# 	{trigger: "K", replacement: "\\cancelto{ $0 }{ ${VISUAL} }", options: "mA"},
+snippet K "K" Ami
+\\cancelto{ $0 }{ ${VISUAL} }
+endsnippet
+# 	{trigger: "S", replacement: "\\sqrt{ ${VISUAL} }", options: "mA"},
+snippet S "S" Ami
+\\sqrt{ ${VISUAL} }
+endsnippet
+# Physics
+# 	{trigger: "kbt", replacement: "k_{B}T", options: "mA"},
+snippet kbt "kbt" Ami
+k_{B}T
+endsnippet
+# 	{trigger: "msun", replacement: "M_{\\odot}", options: "mA"},
+snippet msun "msun" Ami
+M_{\\odot}
+endsnippet
+# Quantum mechanics
+#     {trigger: "dag", replacement: "^{\\dagger}", options: "mA"},
+snippet dag "dag" Ami
+^{\\dagger}
+endsnippet
+# 	{trigger: "o+", replacement: "\\oplus ", options: "mA"},
+snippet o+ "o+" Ami
+\\oplus 
+endsnippet
+# 	{trigger: "ox", replacement: "\\otimes ", options: "mA"},
+snippet ox "ox" Ami
+\\otimes 
+endsnippet
+#     {trigger: "bra", replacement: "\\bra{$0} $1", options: "mA"},
+snippet bra "bra" Ami
+\\bra{$0} $1
+endsnippet
+# 	{trigger: "ket", replacement: "\\ket{$0} $1", options: "mA"},
+snippet ket "ket" Ami
+\\ket{$0} $1
+endsnippet
+# 	{trigger: "brk", replacement: "\\braket{ $0 | $1 } $2", options: "mA"},
+snippet brk "brk" Ami
+\\braket{ $0 | $1 } $2
+endsnippet
+#     {trigger: "outer", replacement: "\\ket{${0:\\psi}} \\bra{${0:\\psi}} $1", options: "mA"},
+snippet outer "outer" Ami
+\\ket{${0:\\psi}} \\bra{${0:\\psi}} $1
+endsnippet
+# Chemistry
+# 	{trigger: "pu", replacement: "\\pu{ $0 }", options: "mA"},
+snippet pu "pu" Ami
+\\pu{ $0 }
+endsnippet
+# 	{trigger: "cee", replacement: "\\ce{ $0 }", options: "mA"},
+snippet cee "cee" Ami
+\\ce{ $0 }
+endsnippet
+# 	{trigger: "he4", replacement: "{}^{4}_{2}He ", options: "mA"},
+snippet he4 "he4" Ami
+{}^{4}_{2}He 
+endsnippet
+# 	{trigger: "he3", replacement: "{}^{3}_{2}He ", options: "mA"},
+snippet he3 "he3" Ami
+{}^{3}_{2}He 
+endsnippet
+# 	{trigger: "iso", replacement: "{}^{${0:4}}_{${1:2}}${2:He}", options: "mA"},
+snippet iso "iso" Ami
+{}^{${0:4}}_{${1:2}}${2:He}
+endsnippet
+# Environments
+# 	{trigger: "pmat", replacement: "\\begin{pmatrix}\n$0\n\\end{pmatrix}", options: "MA"},
+snippet pmat "pmat" Ai
+\\begin{pmatrix}
+$0
+\\end{pmatrix}
+endsnippet
+# 	{trigger: "bmat", replacement: "\\begin{bmatrix}\n$0\n\\end{bmatrix}", options: "MA"},
+snippet bmat "bmat" Ai
+\\begin{bmatrix}
+$0
+\\end{bmatrix}
+endsnippet
+# 	{trigger: "Bmat", replacement: "\\begin{Bmatrix}\n$0\n\\end{Bmatrix}", options: "MA"},
+snippet Bmat "Bmat" Ai
+\\begin{Bmatrix}
+$0
+\\end{Bmatrix}
+endsnippet
+# 	{trigger: "vmat", replacement: "\\begin{vmatrix}\n$0\n\\end{vmatrix}", options: "MA"},
+snippet vmat "vmat" Ai
+\\begin{vmatrix}
+$0
+\\end{vmatrix}
+endsnippet
+# 	{trigger: "Vmat", replacement: "\\begin{Vmatrix}\n$0\n\\end{Vmatrix}", options: "MA"},
+snippet Vmat "Vmat" Ai
+\\begin{Vmatrix}
+$0
+\\end{Vmatrix}
+endsnippet
+# 	{trigger: "matrix", replacement: "\\begin{matrix}\n$0\n\\end{matrix}", options: "MA"},
+snippet matrix "matrix" Ai
+\\begin{matrix}
+$0
+\\end{matrix}
+endsnippet
+# 	{trigger: "pmat", replacement: "\\begin{pmatrix}$0\\end{pmatrix}", options: "nA"},
+snippet pmat "pmat" A
+\\begin{pmatrix}$0\\end{pmatrix}
+endsnippet
+# 	{trigger: "bmat", replacement: "\\begin{bmatrix}$0\\end{bmatrix}", options: "nA"},
+snippet bmat "bmat" A
+\\begin{bmatrix}$0\\end{bmatrix}
+endsnippet
+# 	{trigger: "Bmat", replacement: "\\begin{Bmatrix}$0\\end{Bmatrix}", options: "nA"},
+snippet Bmat "Bmat" A
+\\begin{Bmatrix}$0\\end{Bmatrix}
+endsnippet
+# 	{trigger: "vmat", replacement: "\\begin{vmatrix}$0\\end{vmatrix}", options: "nA"},
+snippet vmat "vmat" A
+\\begin{vmatrix}$0\\end{vmatrix}
+endsnippet
+# 	{trigger: "Vmat", replacement: "\\begin{Vmatrix}$0\\end{Vmatrix}", options: "nA"},
+snippet Vmat "Vmat" A
+\\begin{Vmatrix}$0\\end{Vmatrix}
+endsnippet
+# 	{trigger: "matrix", replacement: "\\begin{matrix}$0\\end{matrix}", options: "nA"},
+snippet matrix "matrix" A
+\\begin{matrix}$0\\end{matrix}
+endsnippet
+# 	{trigger: "cases", replacement: "\\begin{cases}\n$0\n\\end{cases}", options: "mA"},
+snippet cases "cases" Ami
+\\begin{cases}
+$0
+\\end{cases}
+endsnippet
+# 	{trigger: "align", replacement: "\\begin{align}\n$0\n\\end{align}", options: "mA"},
+snippet align "align" Ami
+\\begin{align}
+$0
+\\end{align}
+endsnippet
+# 	{trigger: "array", replacement: "\\begin{array}\n$0\n\\end{array}", options: "mA"},
+snippet array "array" Ami
+\\begin{array}
+$0
+\\end{array}
+endsnippet
+# Brackets
+# 	{trigger: "avg", replacement: "\\langle $0 \\rangle $1", options: "mA"},
+snippet avg "avg" Ami
+\\langle $0 \\rangle $1
+endsnippet
+# 	{trigger: "norm", replacement: "\\lvert $0 \\rvert $1", options: "mA", priority: 1},
+snippet norm "norm priority: 1}" Ami
+\\lvert $0 \\rvert $1
+endsnippet
+# 	{trigger: "Norm", replacement: "\\lVert $0 \\rVert $1", options: "mA", priority: 1},
+snippet Norm "Norm priority: 1}" Ami
+\\lVert $0 \\rVert $1
+endsnippet
+# 	{trigger: "ceil", replacement: "\\lceil $0 \\rceil $1", options: "mA"},
+snippet ceil "ceil" Ami
+\\lceil $0 \\rceil $1
+endsnippet
+# 	{trigger: "floor", replacement: "\\lfloor $0 \\rfloor $1", options: "mA"},
+snippet floor "floor" Ami
+\\lfloor $0 \\rfloor $1
+endsnippet
+# 	{trigger: "mod", replacement: "|$0|$1", options: "mA"},
+snippet mod "mod" Ami
+|$0|$1
+endsnippet
+# 	{trigger: "(", replacement: "(${VISUAL})", options: "mA"},
+snippet ( "(" Ami
+(${VISUAL})
+endsnippet
+# 	{trigger: "[", replacement: "[${VISUAL}]", options: "mA"},
+snippet [ "[" Ami
+[${VISUAL}]
+endsnippet
+# 	{trigger: "{", replacement: "{${VISUAL}}", options: "mA"},
+snippet { "{" Ami
+{${VISUAL}}
+endsnippet
+# 	{trigger: "(", replacement: "($0)$1", options: "mA"},
+snippet ( "(" Ami
+($0)$1
+endsnippet
+# 	{trigger: "{", replacement: "{$0}$1", options: "mA"},
+snippet { "{" Ami
+{$0}$1
+endsnippet
+# 	{trigger: "[", replacement: "[$0]$1", options: "mA"},
+snippet [ "[" Ami
+[$0]$1
+endsnippet
+# 	{trigger: "lr(", replacement: "\\left( $0 \\right) $1", options: "mA"},
+snippet lr( "lr(" Ami
+\\left( $0 \\right) $1
+endsnippet
+# 	{trigger: "lr{", replacement: "\\left\\{ $0 \\right\\} $1", options: "mA"},
+snippet lr{ "lr{" Ami
+\\left\\{ $0 \\right\\} $1
+endsnippet
+# 	{trigger: "lr[", replacement: "\\left[ $0 \\right] $1", options: "mA"},
+snippet lr[ "lr[" Ami
+\\left[ $0 \\right] $1
+endsnippet
+# 	{trigger: "lr|", replacement: "\\left| $0 \\right| $1", options: "mA"},
+snippet lr| "lr|" Ami
+\\left| $0 \\right| $1
+endsnippet
+# 	{trigger: "lra", replacement: "\\left< $0 \\right> $1", options: "mA"},
+snippet lra "lra" Ami
+\\left< $0 \\right> $1
+endsnippet
+# Misc
+# Automatically convert standalone letters in text to math (except a, A, I).
+# (Un-comment to enable)
+# {trigger: /([^'])\b([B-HJ-Zb-z])\b([\n\s.,?!:'])/, replacement: "[[0]]$[[1]]$[[2]]", options: "tA"},
+# Automatically convert Greek letters in text to math.
+# {trigger: "(${GREEK})([\\n\\s.,?!:'])", replacement: "$\\[[0]]$[[1]]", options: "rtAw"},
+# Automatically convert text of the form "x=2" and "x=n+1" to math.
+# {trigger: /([A-Za-z]=\d+)([\n\s.,?!:'])/, replacement: "$[[0]]$[[1]]", options: "rtAw"},
+# {trigger: /([A-Za-z]=[A-Za-z][+-]\d+)([\n\s.,?!:'])/, replacement: "$[[0]]$[[1]]", options: "tAw"},
+# Snippet replacements can have placeholders.
+# 	{trigger: "tayl", replacement: "${0:f}(${1:x} + ${2:h}) = ${0:f}(${1:x}) + ${0:f}'(${1:x})${2:h} + ${0:f}''(${1:x}) \\frac{${2:h}^{2}}{2!} + \\dots$3", options: "mA", description: "Taylor expansion"},
+snippet tayl "Taylor expansion"}" Ami
+${0:f}(${1:x} + ${2:h}) = ${0:f}(${1:x}) + ${0:f}'(${1:x})${2:h} + ${0:f}''(${1:x}) \\frac{${2:h}^{2}}{2!} + \\dots$3
+endsnippet
+# Snippet replacements can also be JavaScript functions.
+# See the documentation for more information.
+# 	{trigger: /iden(\d)/, replacement: (match) => {
+		const n = match[1];
+		let arr = [];
+		for (let j = 0; j < n; j++) {
+			arr[j] = [];
+			for (let i = 0; i < n; i++) {
+				arr[j][i] = (i === j) ? 1 : 0;
+			}
+		}
+		let output = arr.map(el => el.join(" & ")).join(" \\\\\n");
+		output = `\\begin{pmatrix}\n${output}\n\\end{pmatrix}`;
+		return output;
+	}, options: "mA", description: "N x N identity matrix"},
