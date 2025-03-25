@@ -122,7 +122,7 @@ snippet text "text" Ami
 \\text{$0}$1
 endsnippet
 #     {trigger: "\"", replacement: "\\text{$0}$1", options: "mA"},
-snippet \ "\" Ami
+snippet \" "\"" Ami
 \\text{$0}$1
 endsnippet
 # Basic operations
@@ -151,6 +151,9 @@ snippet sq "sq" Ami
 \\sqrt{ $0 }$1
 endsnippet
 # 	{trigger: "//", replacement: "\\frac{$0}{$1}$2", options: "mA"},
+snippet // "//" Ami
+\\frac{$0}{$1}$2
+endsnippet
 # 	{trigger: "ee", replacement: "e^{ $0 }$1", options: "mA"},
 snippet ee "ee" Ami
 e^{ $0 }$1
@@ -160,11 +163,11 @@ snippet invs "invs" Ami
 ^{-1}
 endsnippet
 #     {trigger: /([A-Za-z])(\d)/, replacement: "[[0]]_{[[1]]}", options: "rmA", description: "Auto letter subscript", priority: -1},
-snippet ([A-Za-z])(\d) "Auto letter subscript priority: -1}" Armi
+snippet /([A-Za-z])(\d)/ "Auto letter subscript priority: -1}" Armi
 [[0]]_{[[1]]}
 endsnippet
 #     {trigger: /([^\\])(exp|log|ln)/, replacement: "[[0]]\\[[1]]", options: "rmA"},
-snippet ([^\\])(exp|log|ln) "([^\\])(exp|log|ln)" Armi
+snippet /([^\\])(exp|log|ln)/ "/([^\\])(exp|log|ln)/" Armi
 [[0]]\\[[1]]
 endsnippet
 #     {trigger: "conj", replacement: "^{*}", options: "mA"},
@@ -189,7 +192,7 @@ snippet rm "rm" Ami
 endsnippet
 # Linear algebra
 #     {trigger: /([^\\])(det)/, replacement: "[[0]]\\[[1]]", options: "rmA"},
-snippet ([^\\])(det) "([^\\])(det)" Armi
+snippet /([^\\])(det)/ "/([^\\])(det)/" Armi
 [[0]]\\[[1]]
 endsnippet
 #     {trigger: "trace", replacement: "\\mathrm{Tr}", options: "mA"},
@@ -226,19 +229,19 @@ snippet ([a-zA-Z])vec "([a-zA-Z])vec" Armi
 \\vec{[[0]]}
 endsnippet
 #     {trigger: "([a-zA-Z]),\\.", replacement: "\\mathbf{[[0]]}", options: "rmA"},
-snippet ([a-zA-Z]) "([a-zA-Z])" Armi
+snippet ([a-zA-Z]),\\. "([a-zA-Z]),\\." Armi
 \\mathbf{[[0]]}
 endsnippet
 # 	{trigger: "([a-zA-Z])\\.,", replacement: "\\mathbf{[[0]]}", options: "rmA"},
-snippet ([a-zA-Z])\\. "([a-zA-Z])\\." Armi
+snippet ([a-zA-Z])\\., "([a-zA-Z])\\.," Armi
 \\mathbf{[[0]]}
 endsnippet
 # 	{trigger: "\\\\(${GREEK}),\\.", replacement: "\\boldsymbol{\\[[0]]}", options: "rmA"},
-snippet \\\\(${GREEK}) "\\\\(${GREEK})" Armi
+snippet \\\\(${GREEK}),\\. "\\\\(${GREEK}),\\." Armi
 \\boldsymbol{\\[[0]]}
 endsnippet
 # 	{trigger: "\\\\(${GREEK})\\.,", replacement: "\\boldsymbol{\\[[0]]}", options: "rmA"},
-snippet \\\\(${GREEK})\\. "\\\\(${GREEK})\\." Armi
+snippet \\\\(${GREEK})\\., "\\\\(${GREEK})\\.," Armi
 \\boldsymbol{\\[[0]]}
 endsnippet
 # 	{trigger: "hat", replacement: "\\hat{$0}$1", options: "mA"},
@@ -275,19 +278,19 @@ snippet vec "vec" Ami
 endsnippet
 # More auto letter subscript
 #     {trigger: /([A-Za-z])_(\d\d)/, replacement: "[[0]]_{[[1]]}", options: "rmA"},
-snippet ([A-Za-z])_(\d\d) "([A-Za-z])_(\d\d)" Armi
+snippet /([A-Za-z])_(\d\d)/ "/([A-Za-z])_(\d\d)/" Armi
 [[0]]_{[[1]]}
 endsnippet
 # 	{trigger: /\\hat{([A-Za-z])}(\d)/, replacement: "\\hat{[[0]]}_{[[1]]}", options: "rmA"},
-snippet \\hat{([A-Za-z])}(\d) "\\hat{([A-Za-z])}(\d)" Armi
+snippet /\\hat{([A-Za-z])}(\d)/ "/\\hat{([A-Za-z])}(\d)/" Armi
 \\hat{[[0]]}_{[[1]]}
 endsnippet
 # 	{trigger: /\\vec{([A-Za-z])}(\d)/, replacement: "\\vec{[[0]]}_{[[1]]}", options: "rmA"},
-snippet \\vec{([A-Za-z])}(\d) "\\vec{([A-Za-z])}(\d)" Armi
+snippet /\\vec{([A-Za-z])}(\d)/ "/\\vec{([A-Za-z])}(\d)/" Armi
 \\vec{[[0]]}_{[[1]]}
 endsnippet
 # 	{trigger: /\\mathbf{([A-Za-z])}(\d)/, replacement: "\\mathbf{[[0]]}_{[[1]]}", options: "rmA"},
-snippet \\mathbf{([A-Za-z])}(\d) "\\mathbf{([A-Za-z])}(\d)" Armi
+snippet /\\mathbf{([A-Za-z])}(\d)/ "/\\mathbf{([A-Za-z])}(\d)/" Armi
 \\mathbf{[[0]]}_{[[1]]}
 endsnippet
 #     {trigger: "xnn", replacement: "x_{n}", options: "mA"},
@@ -504,11 +507,11 @@ endsnippet
 # For example, ${GREEK} below is shorthand for "alpha|beta|gamma|Gamma|delta|..."
 # You can edit snippet variables under the Advanced snippet settings section.
 # 	{trigger: "([^\\\\])(${GREEK})", replacement: "[[0]]\\[[1]]", options: "rmA", description: "Add backslash before Greek letters"},
-snippet ([^\\\\])(${GREEK}) "Add backslash before Greek letters"}" Armi
+snippet ([^\\\\])(${GREEK}) ""Add backslash before Greek letters"}" Armi
 [[0]]\\[[1]]
 endsnippet
 # 	{trigger: "([^\\\\])(${SYMBOL})", replacement: "[[0]]\\[[1]]", options: "rmA", description: "Add backslash before symbols"},
-snippet ([^\\\\])(${SYMBOL}) "Add backslash before symbols"}" Armi
+snippet ([^\\\\])(${SYMBOL}) ""Add backslash before symbols"}" Armi
 [[0]]\\[[1]]
 endsnippet
 # Insert space after Greek letters and symbols
@@ -558,7 +561,7 @@ snippet par "par" mi
 \\frac{ \\partial ${0:y} }{ \\partial ${1:x} } $2
 endsnippet
 #     {trigger: /pa([A-Za-z])([A-Za-z])/, replacement: "\\frac{ \\partial [[0]] }{ \\partial [[1]] } ", options: "rm"},
-snippet pa([A-Za-z])([A-Za-z]) "pa([A-Za-z])([A-Za-z])" rmi
+snippet /pa([A-Za-z])([A-Za-z])/ "/pa([A-Za-z])([A-Za-z])/" rmi
 \\frac{ \\partial [[0]] }{ \\partial [[1]] } 
 endsnippet
 #     {trigger: "ddt", replacement: "\\frac{d}{dt} ", options: "mA"},
@@ -566,16 +569,16 @@ snippet ddt "ddt" Ami
 \\frac{d}{dt} 
 endsnippet
 #     {trigger: /([^\\])int/, replacement: "[[0]]\\int", options: "mA", priority: -1},
-snippet ([^\\])int "([^\\])int priority: -1}" Ami
+snippet /([^\\])int/ "/([^\\])int/ priority: -1}" Ami
 [[0]]\\int
 endsnippet
 #     {trigger: "\\int", replacement: "\\int $0 \\, d${1:x} $2", options: "m"},
 snippet \\int "\\int" mi
-\\int $0 \\
+\\int $0 \\, d${1:x} $2
 endsnippet
 #     {trigger: "dint", replacement: "\\int_{${0:0}}^{${1:1}} $2 \\, d${3:x} $4", options: "mA"},
 snippet dint "dint" Ami
-\\int_{${0:0}}^{${1:1}} $2 \\
+\\int_{${0:0}}^{${1:1}} $2 \\, d${3:x} $4
 endsnippet
 #     {trigger: "oint", replacement: "\\oint", options: "mA"},
 snippet oint "oint" Ami
@@ -591,21 +594,27 @@ snippet iiint "iiint" Ami
 endsnippet
 #     {trigger: "oinf", replacement: "\\int_{0}^{\\infty} $0 \\, d${1:x} $2", options: "mA"},
 snippet oinf "oinf" Ami
-\\int_{0}^{\\infty} $0 \\
+\\int_{0}^{\\infty} $0 \\, d${1:x} $2
 endsnippet
 # 	{trigger: "infi", replacement: "\\int_{-\\infty}^{\\infty} $0 \\, d${1:x} $2", options: "mA"},
 snippet infi "infi" Ami
-\\int_{-\\infty}^{\\infty} $0 \\
+\\int_{-\\infty}^{\\infty} $0 \\, d${1:x} $2
 endsnippet
 # Trigonometry
 #     {trigger: /([^\\])(arcsin|sin|arccos|cos|arctan|tan|csc|sec|cot)/, replacement: "[[0]]\\[[1]]", options: "rmA", description: "Add backslash before trig funcs"},
-snippet ([^\\])(arcsin|sin|arccos|cos|arctan|tan|csc|sec|cot) "Add backslash before trig funcs"}" Armi
+snippet /([^\\])(arcsin|sin|arccos|cos|arctan|tan|csc|sec|cot)/ ""Add backslash before trig funcs"}" Armi
 [[0]]\\[[1]]
 endsnippet
 #     {trigger: /\\(arcsin|sin|arccos|cos|arctan|tan|csc|sec|cot)([A-Za-gi-z])/,
+snippet /\\(arcsin|sin|arccos|cos|arctan|tan|csc|sec|cot)([A-Za-gi-z])/ "/\\(arcsin|sin|arccos|cos|arctan|tan|csc|sec|cot)([A-Za-gi-z])/" i
+
+endsnippet
      replacement: "\\[[0]] [[1]]", options: "rmA",
      description: "Add space after trig funcs. Skips letter h to allow sinh, cosh, etc."},
 #     {trigger: /\\(sinh|cosh|tanh|coth)([A-Za-z])/,
+snippet /\\(sinh|cosh|tanh|coth)([A-Za-z])/ "/\\(sinh|cosh|tanh|coth)([A-Za-z])/" i
+
+endsnippet
      replacement: "\\[[0]] [[1]]", options: "rmA",
      description: "Add space after hyperbolic trig funcs"},
 # Visual operations
@@ -851,7 +860,7 @@ endsnippet
 # {trigger: /([A-Za-z]=[A-Za-z][+-]\d+)([\n\s.,?!:'])/, replacement: "$[[0]]$[[1]]", options: "tAw"},
 # Snippet replacements can have placeholders.
 # 	{trigger: "tayl", replacement: "${0:f}(${1:x} + ${2:h}) = ${0:f}(${1:x}) + ${0:f}'(${1:x})${2:h} + ${0:f}''(${1:x}) \\frac{${2:h}^{2}}{2!} + \\dots$3", options: "mA", description: "Taylor expansion"},
-snippet tayl "Taylor expansion"}" Ami
+snippet tayl ""Taylor expansion"}" Ami
 ${0:f}(${1:x} + ${2:h}) = ${0:f}(${1:x}) + ${0:f}'(${1:x})${2:h} + ${0:f}''(${1:x}) \\frac{${2:h}^{2}}{2!} + \\dots$3
 endsnippet
 # Snippet replacements can also be JavaScript functions.

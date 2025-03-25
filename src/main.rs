@@ -77,66 +77,73 @@ fn parse_snippet(line: &str) -> String {
     let mut description = None;
     let mut priority = None;
 
-    // Parse the line as comma-separated key-value pairs
-    let parts: Vec<&str> = line.split(',').map(|s| s.trim()).collect();
+    // Handle various formats of the input line
+    let cleaned_line = line
+        .trim()
+        .trim_matches('\'') // Remove outer single quotes if present
+        .trim_start_matches('{')
+        .trim_end_matches('}'); // Remove outer braces
+
+    // Split by commas but be careful of commas within quotes
+    let mut parts = Vec::new();
+    let mut current_part = String::new();
+    let mut in_quotes = false;
+    let mut escape_next = false;
+
+    for c in cleaned_line.chars() {
+        if escape_next {
+            current_part.push(c);
+            escape_next = false;
+            continue;
+        }
+
+        match c {
+            '\\' => {
+                current_part.push('\\');
+                escape_next = true;
+            }
+            '"' => {
+                in_quotes = !in_quotes;
+                current_part.push(c);
+            }
+            ',' if !in_quotes => {
+                parts.push(current_part.trim().to_string());
+                current_part.clear();
+            }
+            _ => current_part.push(c),
+        }
+    }
+
+    if !current_part.is_empty() {
+        parts.push(current_part.trim().to_string());
+    }
 
     for part in parts {
-        if part.starts_with("{trigger:") || part.starts_with("trigger:") {
-            // Extract trigger
-            trigger = part
-                .replace("{trigger:", "")
-                .replace("trigger:", "")
-                .trim()
-                .trim_matches('"')
-                .to_string();
+        let part = part.trim();
 
-            // Handle regex triggers
-            if trigger.starts_with('/') && trigger.ends_with('/') {
-                trigger = trigger[1..trigger.len() - 1].to_string();
-            }
+        if part.starts_with("trigger:") {
+            trigger = extract_quoted_value(part, "trigger:");
         } else if part.starts_with("replacement:") {
-            // Extract replacement
-            replacement = part
-                .replace("replacement:", "")
-                .trim()
-                .trim_matches('"')
-                .to_string();
+            let raw_replacement = extract_quoted_value(part, "replacement:");
 
             // Skip JavaScript function replacements
-            if replacement.contains("=>") {
+            if raw_replacement.contains("=>") {
                 return String::new();
             }
 
-            // Convert literal \n to actual newlines
-            replacement = replacement.replace("\\n", "\n");
+            // Handle LaTeX backslashes and newlines
+            replacement = raw_replacement.replace("\\n", "\n").replace("\\\\", "\\\\"); // Preserve double backslashes
         } else if part.starts_with("options:") {
-            // Extract options
-            options = part
-                .replace("options:", "")
-                .trim()
-                .trim_matches('"')
-                .to_string();
+            options = extract_quoted_value(part, "options:");
         } else if part.starts_with("description:") {
-            // Extract description
-            description = Some(
-                part.replace("description:", "")
-                    .trim()
-                    .trim_matches('"')
-                    .to_string(),
-            );
+            description = Some(extract_quoted_value(part, "description:"));
         } else if part.starts_with("priority:") {
-            // Extract priority
-            priority = Some(
-                part.replace("priority:", "")
-                    .trim()
-                    .trim_matches('"')
-                    .to_string(),
-            );
+            priority = Some(extract_quoted_value(part, "priority:"));
         }
     }
 
     // Generate the output in hsnips format
-    if !trigger.is_empty() && !replacement.is_empty() {
+    if !trigger.is_empty() {
         // If description is empty or not provided, use the trigger as description
         let desc = match description {
             Some(d) if !d.is_empty() => d,
@@ -159,6 +166,19 @@ fn parse_snippet(line: &str) -> String {
         )
     } else {
         String::new()
+    }
+}
+
+// Helper function to extract quoted values properly
+fn extract_quoted_value(part: &str, key: &str) -> String {
+    let value_part = part.trim_start_matches(key).trim();
+
+    // Handle quoted strings
+    if value_part.starts_with('"') && value_part.ends_with('"') {
+        value_part[1..value_part.len() - 1].to_string()
+    } else {
+        // Not quoted or other format
+        value_part.to_string()
     }
 }
 
