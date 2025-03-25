@@ -1,19 +1,19 @@
 # Math mode
 # 	{trigger: "mk", replacement: "$$0$", options: "tA"},
 snippet mk "mk" Ai
-$$0$
+$$1$
 endsnippet
 # 	{trigger: "dm", replacement: "$$\n$0\n$$", options: "tAw"},
 snippet dm "dm" Awi
 $$
-$0
+$1
 $$
 endsnippet
 # 	{trigger: "beg", replacement: "\\begin{$0}\n$1\n\\end{$0}", options: "mA"},
 snippet beg "beg" Ami
-\\begin{$0}
-$1
-\\end{$0}
+\\begin{$1}
+$2
+\\end{$1}
 endsnippet
 # Dashes
 # {trigger: "--", replacement: "–", options: "tA"},
@@ -119,11 +119,11 @@ endsnippet
 # Text environment
 #     {trigger: "text", replacement: "\\text{$0}$1", options: "mA"},
 snippet text "text" Ami
-\\text{$0}$1
+\\text{$1}$2
 endsnippet
 #     {trigger: "\"", replacement: "\\text{$0}$1", options: "mA"},
 snippet \" "\"" Ami
-\\text{$0}$1
+\\text{$1}$2
 endsnippet
 # Basic operations
 #     {trigger: "sr", replacement: "^{2}", options: "mA"},
@@ -136,27 +136,27 @@ snippet cb "cb" Ami
 endsnippet
 # 	{trigger: "rd", replacement: "^{$0}$1", options: "mA"},
 snippet rd "rd" Ami
-^{$0}$1
+^{$1}$2
 endsnippet
 # 	{trigger: "_", replacement: "_{$0}$1", options: "mA"},
 snippet _ "_" Ami
-_{$0}$1
+_{$1}$2
 endsnippet
 # 	{trigger: "sts", replacement: "_\\text{$0}", options: "mA"},
 snippet sts "sts" Ami
-_\\text{$0}
+_\\text{$1}
 endsnippet
 # 	{trigger: "sq", replacement: "\\sqrt{ $0 }$1", options: "mA"},
 snippet sq "sq" Ami
-\\sqrt{ $0 }$1
+\\sqrt{ $1 }$2
 endsnippet
 # 	{trigger: "//", replacement: "\\frac{$0}{$1}$2", options: "mA"},
 snippet // "//" Ami
-\\frac{$0}{$1}$2
+\\frac{$1}{$2}$3
 endsnippet
 # 	{trigger: "ee", replacement: "e^{ $0 }$1", options: "mA"},
 snippet ee "ee" Ami
-e^{ $0 }$1
+e^{ $1 }$2
 endsnippet
 #     {trigger: "invs", replacement: "^{-1}", options: "mA"},
 snippet invs "invs" Ami
@@ -184,11 +184,11 @@ snippet Im "Im" Ami
 endsnippet
 #     {trigger: "bf", replacement: "\\mathbf{$0}", options: "mA"},
 snippet bf "bf" Ami
-\\mathbf{$0}
+\\mathbf{$1}
 endsnippet
 # 	{trigger: "rm", replacement: "\\mathrm{$0}$1", options: "mA"},
 snippet rm "rm" Ami
-\\mathrm{$0}$1
+\\mathrm{$1}$2
 endsnippet
 # Linear algebra
 #     {trigger: /([^\\])(det)/, replacement: "[[0]]\\[[1]]", options: "rmA"},
@@ -246,19 +246,19 @@ snippet \\\\(${GREEK})\\., "\\\\(${GREEK})\\.," Armi
 endsnippet
 # 	{trigger: "hat", replacement: "\\hat{$0}$1", options: "mA"},
 snippet hat "hat" Ami
-\\hat{$0}$1
+\\hat{$1}$2
 endsnippet
 #     {trigger: "bar", replacement: "\\bar{$0}$1", options: "mA"},
 snippet bar "bar" Ami
-\\bar{$0}$1
+\\bar{$1}$2
 endsnippet
 # 	{trigger: "dot", replacement: "\\dot{$0}$1", options: "mA", priority: -1},
 snippet dot "dot priority: -1}" Ami
-\\dot{$0}$1
+\\dot{$1}$2
 endsnippet
 # 	{trigger: "ddot", replacement: "\\ddot{$0}$1", options: "mA"},
 snippet ddot "ddot" Ami
-\\ddot{$0}$1
+\\ddot{$1}$2
 endsnippet
 # 	{trigger: "cdot", replacement: "\\cdot", options: "mA"},
 snippet cdot "cdot" Ami
@@ -266,15 +266,15 @@ snippet cdot "cdot" Ami
 endsnippet
 # 	{trigger: "tilde", replacement: "\\tilde{$0}$1", options: "mA"},
 snippet tilde "tilde" Ami
-\\tilde{$0}$1
+\\tilde{$1}$2
 endsnippet
 # 	{trigger: "und", replacement: "\\underline{$0}$1", options: "mA"},
 snippet und "und" Ami
-\\underline{$0}$1
+\\underline{$1}$2
 endsnippet
 # 	{trigger: "vec", replacement: "\\vec{$0}$1", options: "mA"},
 snippet vec "vec" Ami
-\\vec{$0}$1
+\\vec{$1}$2
 endsnippet
 # More auto letter subscript
 #     {trigger: /([A-Za-z])_(\d\d)/, replacement: "[[0]]_{[[1]]}", options: "rmA"},
@@ -336,15 +336,15 @@ snippet prod "prod" Ami
 endsnippet
 # 	{trigger: "\\sum", replacement: "\\sum_{${0:i}=${1:1}}^{${2:N}} $3", options: "m"},
 snippet \\sum "\\sum" mi
-\\sum_{${0:i}=${1:1}}^{${2:N}} $3
+\\sum_{${1:i}=${2:1}}^{${3:N}} $4
 endsnippet
 # 	{trigger: "\\prod", replacement: "\\prod_{${0:i}=${1:1}}^{${2:N}} $3", options: "m"},
 snippet \\prod "\\prod" mi
-\\prod_{${0:i}=${1:1}}^{${2:N}} $3
+\\prod_{${1:i}=${2:1}}^{${3:N}} $4
 endsnippet
 #     {trigger: "lim", replacement: "\\lim_{ ${0:n} \\to ${1:\\infty} } $2", options: "mA"},
 snippet lim "lim" Ami
-\\lim_{ ${0:n} \\to ${1:\\infty} } $2
+\\lim_{ ${1:n} \\to ${2:\\infty} } $3
 endsnippet
 #     {trigger: "+-", replacement: "\\pm", options: "mA"},
 snippet +- "+-" Ami
@@ -472,7 +472,7 @@ snippet eset "eset" Ami
 endsnippet
 # 	{trigger: "set", replacement: "\\{ $0 \\}$1", options: "mA"},
 snippet set "set" Ami
-\\{ $0 \\}$1
+\\{ $1 \\}$2
 endsnippet
 # 	{trigger: "e\\xi sts", replacement: "\\exists", options: "mA", priority: 1},
 snippet e\\xi sts "e\\xi sts priority: 1}" Ami
@@ -529,7 +529,7 @@ snippet \\\\(${GREEK}|${SYMBOL}) cb "\\\\(${GREEK}|${SYMBOL}) cb" Armi
 endsnippet
 # 	{trigger: "\\\\(${GREEK}|${SYMBOL}) rd", replacement: "\\[[0]]^{$0}$1", options: "rmA"},
 snippet \\\\(${GREEK}|${SYMBOL}) rd "\\\\(${GREEK}|${SYMBOL}) rd" Armi
-\\[[0]]^{$0}$1
+\\[[0]]^{$1}$2
 endsnippet
 # 	{trigger: "\\\\(${GREEK}|${SYMBOL}) hat", replacement: "\\hat{\\[[0]]}", options: "rmA"},
 snippet \\\\(${GREEK}|${SYMBOL}) hat "\\\\(${GREEK}|${SYMBOL}) hat" Armi
@@ -558,7 +558,7 @@ endsnippet
 # Derivatives and integrals
 #     {trigger: "par", replacement: "\\frac{ \\partial ${0:y} }{ \\partial ${1:x} } $2", options: "m"},
 snippet par "par" mi
-\\frac{ \\partial ${0:y} }{ \\partial ${1:x} } $2
+\\frac{ \\partial ${1:y} }{ \\partial ${2:x} } $3
 endsnippet
 #     {trigger: /pa([A-Za-z])([A-Za-z])/, replacement: "\\frac{ \\partial [[0]] }{ \\partial [[1]] } ", options: "rm"},
 snippet /pa([A-Za-z])([A-Za-z])/ "/pa([A-Za-z])([A-Za-z])/" rmi
@@ -574,11 +574,11 @@ snippet /([^\\])int/ "/([^\\])int/ priority: -1}" Ami
 endsnippet
 #     {trigger: "\\int", replacement: "\\int $0 \\, d${1:x} $2", options: "m"},
 snippet \\int "\\int" mi
-\\int $0 \\, d${1:x} $2
+\\int $1 \\, d${2:x} $3
 endsnippet
 #     {trigger: "dint", replacement: "\\int_{${0:0}}^{${1:1}} $2 \\, d${3:x} $4", options: "mA"},
 snippet dint "dint" Ami
-\\int_{${0:0}}^{${1:1}} $2 \\, d${3:x} $4
+\\int_{${1:0}}^{${2:1}} $3 \\, d${4:x} $5
 endsnippet
 #     {trigger: "oint", replacement: "\\oint", options: "mA"},
 snippet oint "oint" Ami
@@ -594,11 +594,11 @@ snippet iiint "iiint" Ami
 endsnippet
 #     {trigger: "oinf", replacement: "\\int_{0}^{\\infty} $0 \\, d${1:x} $2", options: "mA"},
 snippet oinf "oinf" Ami
-\\int_{0}^{\\infty} $0 \\, d${1:x} $2
+\\int_{0}^{\\infty} $1 \\, d${2:x} $3
 endsnippet
 # 	{trigger: "infi", replacement: "\\int_{-\\infty}^{\\infty} $0 \\, d${1:x} $2", options: "mA"},
 snippet infi "infi" Ami
-\\int_{-\\infty}^{\\infty} $0 \\, d${1:x} $2
+\\int_{-\\infty}^{\\infty} $1 \\, d${2:x} $3
 endsnippet
 # Trigonometry
 #     {trigger: /([^\\])(arcsin|sin|arccos|cos|arctan|tan|csc|sec|cot)/, replacement: "[[0]]\\[[1]]", options: "rmA", description: "Add backslash before trig funcs"},
@@ -620,15 +620,15 @@ endsnippet
 # Visual operations
 # 	{trigger: "U", replacement: "\\underbrace{ ${VISUAL} }_{ $0 }", options: "mA"},
 snippet U "U" Ami
-\\underbrace{ ${VISUAL} }_{ $0 }
+\\underbrace{ ${VISUAL} }_{ $1 }
 endsnippet
 # 	{trigger: "O", replacement: "\\overbrace{ ${VISUAL} }^{ $0 }", options: "mA"},
 snippet O "O" Ami
-\\overbrace{ ${VISUAL} }^{ $0 }
+\\overbrace{ ${VISUAL} }^{ $1 }
 endsnippet
 # 	{trigger: "B", replacement: "\\underset{ $0 }{ ${VISUAL} }", options: "mA"},
 snippet B "B" Ami
-\\underset{ $0 }{ ${VISUAL} }
+\\underset{ $1 }{ ${VISUAL} }
 endsnippet
 # 	{trigger: "C", replacement: "\\cancel{ ${VISUAL} }", options: "mA"},
 snippet C "C" Ami
@@ -636,7 +636,7 @@ snippet C "C" Ami
 endsnippet
 # 	{trigger: "K", replacement: "\\cancelto{ $0 }{ ${VISUAL} }", options: "mA"},
 snippet K "K" Ami
-\\cancelto{ $0 }{ ${VISUAL} }
+\\cancelto{ $1 }{ ${VISUAL} }
 endsnippet
 # 	{trigger: "S", replacement: "\\sqrt{ ${VISUAL} }", options: "mA"},
 snippet S "S" Ami
@@ -666,28 +666,28 @@ snippet ox "ox" Ami
 endsnippet
 #     {trigger: "bra", replacement: "\\bra{$0} $1", options: "mA"},
 snippet bra "bra" Ami
-\\bra{$0} $1
+\\bra{$1} $2
 endsnippet
 # 	{trigger: "ket", replacement: "\\ket{$0} $1", options: "mA"},
 snippet ket "ket" Ami
-\\ket{$0} $1
+\\ket{$1} $2
 endsnippet
 # 	{trigger: "brk", replacement: "\\braket{ $0 | $1 } $2", options: "mA"},
 snippet brk "brk" Ami
-\\braket{ $0 | $1 } $2
+\\braket{ $1 | $2 } $3
 endsnippet
 #     {trigger: "outer", replacement: "\\ket{${0:\\psi}} \\bra{${0:\\psi}} $1", options: "mA"},
 snippet outer "outer" Ami
-\\ket{${0:\\psi}} \\bra{${0:\\psi}} $1
+\\ket{${1:\\psi}} \\bra{${1:\\psi}} $2
 endsnippet
 # Chemistry
 # 	{trigger: "pu", replacement: "\\pu{ $0 }", options: "mA"},
 snippet pu "pu" Ami
-\\pu{ $0 }
+\\pu{ $1 }
 endsnippet
 # 	{trigger: "cee", replacement: "\\ce{ $0 }", options: "mA"},
 snippet cee "cee" Ami
-\\ce{ $0 }
+\\ce{ $1 }
 endsnippet
 # 	{trigger: "he4", replacement: "{}^{4}_{2}He ", options: "mA"},
 snippet he4 "he4" Ami
@@ -699,111 +699,111 @@ snippet he3 "he3" Ami
 endsnippet
 # 	{trigger: "iso", replacement: "{}^{${0:4}}_{${1:2}}${2:He}", options: "mA"},
 snippet iso "iso" Ami
-{}^{${0:4}}_{${1:2}}${2:He}
+{}^{${1:4}}_{${2:2}}${3:He}
 endsnippet
 # Environments
 # 	{trigger: "pmat", replacement: "\\begin{pmatrix}\n$0\n\\end{pmatrix}", options: "MA"},
 snippet pmat "pmat" Ai
 \\begin{pmatrix}
-$0
+$1
 \\end{pmatrix}
 endsnippet
 # 	{trigger: "bmat", replacement: "\\begin{bmatrix}\n$0\n\\end{bmatrix}", options: "MA"},
 snippet bmat "bmat" Ai
 \\begin{bmatrix}
-$0
+$1
 \\end{bmatrix}
 endsnippet
 # 	{trigger: "Bmat", replacement: "\\begin{Bmatrix}\n$0\n\\end{Bmatrix}", options: "MA"},
 snippet Bmat "Bmat" Ai
 \\begin{Bmatrix}
-$0
+$1
 \\end{Bmatrix}
 endsnippet
 # 	{trigger: "vmat", replacement: "\\begin{vmatrix}\n$0\n\\end{vmatrix}", options: "MA"},
 snippet vmat "vmat" Ai
 \\begin{vmatrix}
-$0
+$1
 \\end{vmatrix}
 endsnippet
 # 	{trigger: "Vmat", replacement: "\\begin{Vmatrix}\n$0\n\\end{Vmatrix}", options: "MA"},
 snippet Vmat "Vmat" Ai
 \\begin{Vmatrix}
-$0
+$1
 \\end{Vmatrix}
 endsnippet
 # 	{trigger: "matrix", replacement: "\\begin{matrix}\n$0\n\\end{matrix}", options: "MA"},
 snippet matrix "matrix" Ai
 \\begin{matrix}
-$0
+$1
 \\end{matrix}
 endsnippet
 # 	{trigger: "pmat", replacement: "\\begin{pmatrix}$0\\end{pmatrix}", options: "nA"},
 snippet pmat "pmat" A
-\\begin{pmatrix}$0\\end{pmatrix}
+\\begin{pmatrix}$1\\end{pmatrix}
 endsnippet
 # 	{trigger: "bmat", replacement: "\\begin{bmatrix}$0\\end{bmatrix}", options: "nA"},
 snippet bmat "bmat" A
-\\begin{bmatrix}$0\\end{bmatrix}
+\\begin{bmatrix}$1\\end{bmatrix}
 endsnippet
 # 	{trigger: "Bmat", replacement: "\\begin{Bmatrix}$0\\end{Bmatrix}", options: "nA"},
 snippet Bmat "Bmat" A
-\\begin{Bmatrix}$0\\end{Bmatrix}
+\\begin{Bmatrix}$1\\end{Bmatrix}
 endsnippet
 # 	{trigger: "vmat", replacement: "\\begin{vmatrix}$0\\end{vmatrix}", options: "nA"},
 snippet vmat "vmat" A
-\\begin{vmatrix}$0\\end{vmatrix}
+\\begin{vmatrix}$1\\end{vmatrix}
 endsnippet
 # 	{trigger: "Vmat", replacement: "\\begin{Vmatrix}$0\\end{Vmatrix}", options: "nA"},
 snippet Vmat "Vmat" A
-\\begin{Vmatrix}$0\\end{Vmatrix}
+\\begin{Vmatrix}$1\\end{Vmatrix}
 endsnippet
 # 	{trigger: "matrix", replacement: "\\begin{matrix}$0\\end{matrix}", options: "nA"},
 snippet matrix "matrix" A
-\\begin{matrix}$0\\end{matrix}
+\\begin{matrix}$1\\end{matrix}
 endsnippet
 # 	{trigger: "cases", replacement: "\\begin{cases}\n$0\n\\end{cases}", options: "mA"},
 snippet cases "cases" Ami
 \\begin{cases}
-$0
+$1
 \\end{cases}
 endsnippet
 # 	{trigger: "align", replacement: "\\begin{align}\n$0\n\\end{align}", options: "mA"},
 snippet align "align" Ami
 \\begin{align}
-$0
+$1
 \\end{align}
 endsnippet
 # 	{trigger: "array", replacement: "\\begin{array}\n$0\n\\end{array}", options: "mA"},
 snippet array "array" Ami
 \\begin{array}
-$0
+$1
 \\end{array}
 endsnippet
 # Brackets
 # 	{trigger: "avg", replacement: "\\langle $0 \\rangle $1", options: "mA"},
 snippet avg "avg" Ami
-\\langle $0 \\rangle $1
+\\langle $1 \\rangle $2
 endsnippet
 # 	{trigger: "norm", replacement: "\\lvert $0 \\rvert $1", options: "mA", priority: 1},
 snippet norm "norm priority: 1}" Ami
-\\lvert $0 \\rvert $1
+\\lvert $1 \\rvert $2
 endsnippet
 # 	{trigger: "Norm", replacement: "\\lVert $0 \\rVert $1", options: "mA", priority: 1},
 snippet Norm "Norm priority: 1}" Ami
-\\lVert $0 \\rVert $1
+\\lVert $1 \\rVert $2
 endsnippet
 # 	{trigger: "ceil", replacement: "\\lceil $0 \\rceil $1", options: "mA"},
 snippet ceil "ceil" Ami
-\\lceil $0 \\rceil $1
+\\lceil $1 \\rceil $2
 endsnippet
 # 	{trigger: "floor", replacement: "\\lfloor $0 \\rfloor $1", options: "mA"},
 snippet floor "floor" Ami
-\\lfloor $0 \\rfloor $1
+\\lfloor $1 \\rfloor $2
 endsnippet
 # 	{trigger: "mod", replacement: "|$0|$1", options: "mA"},
 snippet mod "mod" Ami
-|$0|$1
+|$1|$2
 endsnippet
 # 	{trigger: "(", replacement: "(${VISUAL})", options: "mA"},
 snippet ( "(" Ami
@@ -819,35 +819,35 @@ snippet { "{" Ami
 endsnippet
 # 	{trigger: "(", replacement: "($0)$1", options: "mA"},
 snippet ( "(" Ami
-($0)$1
+($1)$2
 endsnippet
 # 	{trigger: "{", replacement: "{$0}$1", options: "mA"},
 snippet { "{" Ami
-{$0}$1
+{$1}$2
 endsnippet
 # 	{trigger: "[", replacement: "[$0]$1", options: "mA"},
 snippet [ "[" Ami
-[$0]$1
+[$1]$2
 endsnippet
 # 	{trigger: "lr(", replacement: "\\left( $0 \\right) $1", options: "mA"},
 snippet lr( "lr(" Ami
-\\left( $0 \\right) $1
+\\left( $1 \\right) $2
 endsnippet
 # 	{trigger: "lr{", replacement: "\\left\\{ $0 \\right\\} $1", options: "mA"},
 snippet lr{ "lr{" Ami
-\\left\\{ $0 \\right\\} $1
+\\left\\{ $1 \\right\\} $2
 endsnippet
 # 	{trigger: "lr[", replacement: "\\left[ $0 \\right] $1", options: "mA"},
 snippet lr[ "lr[" Ami
-\\left[ $0 \\right] $1
+\\left[ $1 \\right] $2
 endsnippet
 # 	{trigger: "lr|", replacement: "\\left| $0 \\right| $1", options: "mA"},
 snippet lr| "lr|" Ami
-\\left| $0 \\right| $1
+\\left| $1 \\right| $2
 endsnippet
 # 	{trigger: "lra", replacement: "\\left< $0 \\right> $1", options: "mA"},
 snippet lra "lra" Ami
-\\left< $0 \\right> $1
+\\left< $1 \\right> $2
 endsnippet
 # Misc
 # Automatically convert standalone letters in text to math (except a, A, I).
@@ -861,7 +861,7 @@ endsnippet
 # Snippet replacements can have placeholders.
 # 	{trigger: "tayl", replacement: "${0:f}(${1:x} + ${2:h}) = ${0:f}(${1:x}) + ${0:f}'(${1:x})${2:h} + ${0:f}''(${1:x}) \\frac{${2:h}^{2}}{2!} + \\dots$3", options: "mA", description: "Taylor expansion"},
 snippet tayl ""Taylor expansion"}" Ami
-${0:f}(${1:x} + ${2:h}) = ${0:f}(${1:x}) + ${0:f}'(${1:x})${2:h} + ${0:f}''(${1:x}) \\frac{${2:h}^{2}}{2!} + \\dots$3
+${1:f}(${2:x} + ${3:h}) = ${1:f}(${2:x}) + ${1:f}'(${2:x})${3:h} + ${1:f}''(${2:x}) \\frac{${3:h}^{2}}{2!} + \\dots$4
 endsnippet
 # Snippet replacements can also be JavaScript functions.
 # See the documentation for more information.

@@ -132,7 +132,10 @@ fn parse_snippet(line: &str) -> String {
             }
 
             // Handle LaTeX backslashes and newlines
-            replacement = raw_replacement.replace("\\n", "\n").replace("\\\\", "\\\\"); // Preserve double backslashes
+            let processed = raw_replacement.replace("\\n", "\n").replace("\\\\", "\\\\"); // Preserve double backslashes
+
+            // Convert tabstop numbering from $0 to $1
+            replacement = adjust_tabstops(processed);
         } else if part.starts_with("options:") {
             options = extract_quoted_value(part, "options:");
         } else if part.starts_with("description:") {
@@ -167,6 +170,68 @@ fn parse_snippet(line: &str) -> String {
     } else {
         String::new()
     }
+}
+
+// Function to adjust tabstop numbering from $0-based to $1-based
+fn adjust_tabstops(input: String) -> String {
+    let mut result = String::new();
+    let mut chars = input.chars().peekable();
+
+    while let Some(c) = chars.next() {
+        if c == '$' {
+            if let Some(&next_char) = chars.peek() {
+                if next_char.is_digit(10) {
+                    // Found a simple tabstop like $0, $1, etc.
+                    let digit = chars.next().unwrap().to_digit(10).unwrap();
+                    // Increment the tabstop number
+                    result.push('$');
+                    result.push_str(&(digit + 1).to_string());
+                } else if next_char == '{' {
+                    // Found a tabstop with placeholder like ${0:default}
+                    result.push('$');
+                    result.push('{');
+                    chars.next(); // consume the '{'
+
+                    // Read the number
+                    let mut num_str = String::new();
+                    while let Some(&next) = chars.peek() {
+                        if next.is_digit(10) {
+                            num_str.push(chars.next().unwrap());
+                        } else {
+                            break;
+                        }
+                    }
+
+                    if !num_str.is_empty() {
+                        if let Ok(num) = num_str.parse::<u32>() {
+                            // Increment the tabstop number
+                            result.push_str(&(num + 1).to_string());
+                        } else {
+                            // If parsing failed, just keep the original
+                            result.push_str(&num_str);
+                        }
+                    }
+
+                    // Add the rest of the placeholder
+                    if let Some(&next) = chars.peek() {
+                        if next == ':' || next == '}' {
+                            result.push(chars.next().unwrap());
+                        }
+                    }
+                } else {
+                    // Just a $ followed by something else
+                    result.push('$');
+                }
+            } else {
+                // $ at the end of the string
+                result.push('$');
+            }
+        } else {
+            result.push(c);
+        }
+    }
+
+    result
 }
 
 // Helper function to extract quoted values properly
